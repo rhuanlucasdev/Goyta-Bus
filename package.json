@@ -1,0 +1,34 @@
+{
+  "name": "goyta-bus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhuanlucasdev/Goyta-Bus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rhuanlucasdev/Goyta-Bus/issues"
+  },
+  "homepage": "https://github.com/rhuanlucasdev/Goyta-Bus#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
+  },
+  "lint-staged": {
+    "apps/web/**/*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}
