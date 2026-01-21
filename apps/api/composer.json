@@ -1,0 +1,18 @@
+{
+    "name": "goyta-bus/api",
+    "description": "Backend API for GoytaBus",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GoytaBus\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rhuan Lucas, Raphael Stefano, Joao Pedro Monteiro"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
