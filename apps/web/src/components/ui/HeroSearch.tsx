@@ -1,4 +1,4 @@
-import { Search, MapPin, Calendar } from "lucide-react";
+import { Search, MapPin, Calendar } from 'lucide-react'
 
 export const HeroSearch = () => {
   return (
@@ -7,9 +7,7 @@ export const HeroSearch = () => {
       <div className="bg-white shadow-lg border border-gray-100 rounded-full px-4 py-3 flex flex-col md:flex-row items-center gap-2 w-[90%] max-w-5xl">
         {/* Origem */}
         <div className="flex flex-col flex-1 px-6 border-r border-gray-200">
-          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">
-            Origem
-          </label>
+          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">Origem</label>
           <div className="flex items-center gap-2">
             <MapPin size={18} className="text-blue-600" />
             <input
@@ -22,9 +20,7 @@ export const HeroSearch = () => {
 
         {/* Destino */}
         <div className="flex flex-col flex-1 px-6 border-r border-gray-200">
-          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">
-            Destino
-          </label>
+          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">Destino</label>
           <div className="flex items-center gap-2">
             <MapPin size={18} className="text-blue-600" />
             <input
@@ -37,9 +33,7 @@ export const HeroSearch = () => {
 
         {/* Data */}
         <div className="flex flex-col flex-1 px-6">
-          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">
-            Ida
-          </label>
+          <label className="text-[10px] uppercase text-gray-400 font-bold mb-1">Ida</label>
           <div className="flex items-center gap-2">
             <Calendar size={18} className="text-blue-600" />
             <input
@@ -55,26 +49,6 @@ export const HeroSearch = () => {
           <Search size={22} strokeWidth={2.5} />
         </button>
       </div>
-
-      {/* 2. Banner Azul com Imagem de Fundo */}
-      <div className="w-[95%] max-w-450 h-64 rounded-[80px] relative overflow-hidden shadow-lg group mt-20">
-        {/* A Imagem de Fundo */}
-        <img
-          src="../public/fundo-banner1.jpg"
-          alt="Background Viagens"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Overlay Azul (84% de opacidade) */}
-        <div className="absolute inset-0 bg-blue-900/84 flex flex-col items-center justify-center text-white p-6">
-          <span className="text-sm font-light opacity-80 mb-2 tracking-wide uppercase">
-            Intermunicipais - Interestaduais
-          </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Viagens
-          </h1>
-        </div>
-      </div>
     </section>
-  );
-};
+  )
+}

@@ -37,6 +37,38 @@ const MOCK_TRIPS: Trip[] = [
       'Cristo Redentor e Corcovado: Uma das 7 maravilhas do mundo moderno, com vistas panorâmicas.',
     price: 64.0,
     imageUrl: '../public/foto_card.jpg',
+  },{
+    id: 5,
+    origin: 'São Paulo',
+    destination: 'Rio de Janeiro',
+    description:
+      'Cristo Redentor e Corcovado: Uma das 7 maravilhas do mundo moderno, com vistas panorâmicas.',
+    price: 64.0,
+    imageUrl: '../public/foto_card.jpg',
+  },{
+    id: 6,
+    origin: 'São Paulo',
+    destination: 'Rio de Janeiro',
+    description:
+      'Cristo Redentor e Corcovado: Uma das 7 maravilhas do mundo moderno, com vistas panorâmicas.',
+    price: 64.0,
+    imageUrl: '../public/foto_card.jpg',
+  },{
+    id: 7,
+    origin: 'São Paulo',
+    destination: 'Rio de Janeiro',
+    description:
+      'Cristo Redentor e Corcovado: Uma das 7 maravilhas do mundo moderno, com vistas panorâmicas.',
+    price: 64.0,
+    imageUrl: '../public/foto_card.jpg',
+  },{
+    id: 8,
+    origin: 'São Paulo',
+    destination: 'Rio de Janeiro',
+    description:
+      'Cristo Redentor e Corcovado: Uma das 7 maravilhas do mundo moderno, com vistas panorâmicas.',
+    price: 64.0,
+    imageUrl: '../public/foto_card.jpg',
   },
 ]
 
