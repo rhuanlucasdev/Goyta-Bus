@@ -7,16 +7,40 @@ namespace Composer\Autoload;
 class ComposerStaticInit9f5e8ca57d1ae7a88d4c00c760119c18
 {
     public static $prefixLengthsPsr4 = array (
-        'G' =>
+        'I' => 
+        array (
+            'Infrastructure\\' => 15,
+        ),
+        'G' => 
         array (
             'GoytaBus\\Api\\' => 13,
+        ),
+        'D' => 
+        array (
+            'Domain\\' => 7,
+        ),
+        'A' => 
+        array (
+            'Application\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'GoytaBus\\Api\\' =>
+        'Infrastructure\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Infrastructure',
+        ),
+        'GoytaBus\\Api\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Domain\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Domain',
+        ),
+        'Application\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Application',
         ),
     );
 

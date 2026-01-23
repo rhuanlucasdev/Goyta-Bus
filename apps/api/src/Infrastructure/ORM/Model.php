@@ -8,12 +8,13 @@ use PDO;
 abstract class Model
 {
   protected static string $table;
+  protected static string $primaryKey = 'id';
 
   public static function find(int $id): ?static
   {
     $pdo = Database::getConnection();
     $stmt = $pdo->prepare(
-      "SELECT * FROM " . static::$table . " WHERE id = :id"
+      "SELECT * FROM " . static::$table . " WHERE " . static::$primaryKey . " = :id"
     );
     $stmt->execute(['id' => $id]);
 
@@ -27,9 +28,11 @@ abstract class Model
     $pdo = Database::getConnection();
     $fields = get_object_vars($this);
 
-    if (isset($this->id)) {
-      $id = $fields['id'];
-      unset($fields['id']);
+    $pk = static::$primaryKey;
+
+    if (isset($this->$pk)) {
+      $id = $fields[static::$primaryKey];
+      unset($fields[static::$primaryKey]);
 
       $columns = array_keys($fields);
       $setClause = implode(
@@ -39,16 +42,16 @@ abstract class Model
 
       $query = "UPDATE " . static::$table . "
                       SET $setClause
-                      WHERE id = :id";
+                      WHERE ". static::$primaryKey . "= :id";
 
       $stmt = $pdo->prepare($query);
-      $fields['id'] = $id;
+      $fields[static::$primaryKey] = $id;
 
       return $stmt->execute($fields);
     }
 
     // INSERT
-    unset($fields['id']);
+    unset($fields[static::$primaryKey]);
 
     $columns = array_keys($fields);
     $placeholders = array_map(fn($col) => ":$col", $columns);
@@ -59,8 +62,33 @@ abstract class Model
     $stmt = $pdo->prepare($query);
     $success = $stmt->execute($fields);
 
+    $pk = static::$primaryKey;
+
     if ($success) {
-      $this->id = (int) $pdo->lastInsertId();
+      $this->$pk = (int) $pdo->lastInsertId();
+    }
+
+    return $success;
+  }
+
+  public function delete(): bool
+  {
+
+    $pk = static::$primaryKey;
+
+    if (!isset($this->$pk)) {
+      throw new Exception('Cannot delete model without primary key');
+    }
+
+    $pdo = Database::getConnection();
+    $stmt = $pdo->prepare(
+      "DELETE FROM " . static::$table . " WHERE " . static::$primaryKey . " = :id"
+    );
+
+    $success = $stmt->execute(['id' => $this->$pk]);
+
+    if ($success) {
+      unset($this->$pk);
     }
 
     return $success;
