@@ -1,60 +1,90 @@
 import { UserCircle, Globe, Tag, LifeBuoy } from 'lucide-react'
+import { Link, NavLink } from 'react-router'
 
 export const Header = () => {
+  const navLinkStyles = 'relative flex items-center gap-2 pb-10 pt-10 transition-colors font-medium'
   return (
-    <header className="w-full pt-4 bg-white  md:px-12 flex items-center justify-between">
+    <header className="w-full pt-4 bg-slate-50  md:px-12 flex items-center justify-between">
       {/* Logo - Ajuste o caminho da imagem conforme seu projeto */}
       <div className="flex items-center">
         <div className="bg-blue-900 p-2 rounded-tl-[40px] rounded-br-[40px] h-28 w-28">
-          <img src="../public/logo.svg" alt="Goyta-Bus" className="h-22.5 w-22.5" />
+          <Link to="/">
+            <img src="/logo.svg" alt="Goyta-Bus" className="p-1 h-22.5 w-22.5" />
+          </Link>
         </div>
       </div>
 
       {/* Navegação Central */}
-      <nav className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
-        {/* LINK ATIVO: Borda fixa para indicar onde o usuário está */}
-        <a href="#" className="relative flex items-center gap-2 text-blue-900 pb-10 pt-10">
-          <Globe size={20} /> Viagens
-          <span className="absolute -bottom-1 left-0 w-full h-1 bg-blue-900 rounded-b-full"></span>
-        </a>
-
-        {/* LINK COM HOVER ANIMADO: Ofertas */}
-        <a
-          href="#"
-          className="relative group flex items-center gap-2 hover:text-blue-900 transition-colors pb-10 pt-10"
+      <nav className="hidden md:flex items-center gap-8 text-gray-600">
+        {/* LINK: Viagens */}
+        <NavLink
+          to="/viagens"
+          className={({ isActive }) =>
+            `${navLinkStyles} ${isActive ? 'text-blue-900' : 'hover:text-blue-900 text-gray-600 group'}`
+          }
         >
-          <Tag size={20} /> Ofertas
-          <span
-            className="absolute -bottom-1 left-0 w-full h-1 bg-blue-900 
-                   scale-x-0 origin-left transition-transform duration-300 
-                   group-hover:scale-x-100 rounded-b-full"
-          ></span>
-        </a>
+          {({ isActive }) => (
+            <>
+              <Globe size={20} /> Viagens
+              <span
+                className={`absolute -bottom-1 left-0 w-full h-1 bg-blue-900 rounded-b-full transition-transform duration-300 
+              ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 origin-left'}`}
+              />
+            </>
+          )}
+        </NavLink>
 
-        {/* LINK COM HOVER ANIMADO: Ajuda */}
-        <a
-          href="#"
-          className="relative group flex items-center gap-2 hover:text-blue-900 transition-colors pb-10 pt-10 "
+        {/* LINK: Ofertas */}
+        <NavLink
+          to="/ofertas"
+          className={({ isActive }) =>
+            `${navLinkStyles} ${isActive ? 'text-blue-900' : 'hover:text-blue-900 text-gray-600 group'}`
+          }
         >
-          <LifeBuoy size={20} /> Ajuda
-          <span
-            className="absolute -bottom-1 left-0 w-full h-1 bg-blue-900 
-                   scale-x-0 origin-left transition-transform duration-300 
-                   group-hover:scale-x-100 rounded-b-full"
-          ></span>
-        </a>
+          {({ isActive }) => (
+            <>
+              <Tag size={20} /> Ofertas
+              <span
+                className={`absolute -bottom-1 left-0 w-full h-1 bg-blue-900 rounded-b-full transition-transform duration-300 
+              ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 origin-left'}`}
+              />
+            </>
+          )}
+        </NavLink>
+
+        {/* LINK: Ajuda */}
+        <NavLink
+          to="/ajuda"
+          className={({ isActive }) =>
+            `${navLinkStyles} ${isActive ? 'text-blue-900' : 'hover:text-blue-900 text-gray-600 group'}`
+          }
+        >
+          {({ isActive }) => (
+            <>
+              <LifeBuoy size={20} /> Ajuda
+              <span
+                className={`absolute -bottom-1 left-0 w-full h-1 bg-blue-900 rounded-b-full transition-transform duration-300 
+              ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 origin-left'}`}
+              />
+            </>
+          )}
+        </NavLink>
       </nav>
 
       {/* Lado Direito: Login/Registro */}
       <div className="flex items-center gap-4">
-        <button className="flex items-center gap-2 text-gray-700 hover:text-blue-700 font-medium cursor-pointer">
-          <UserCircle size={24} />
-          <span>Entrar</span>
-        </button>
+        <Link to="/login">
+          <button className="flex items-center gap-2 text-gray-700 hover:text-blue-700 font-medium cursor-pointer">
+            <UserCircle size={24} />
+            <span>Entrar</span>
+          </button>
+        </Link>
         <div className="h-6 w-[px] bg-gray-300 mx-1"></div>
-        <button className="text-gray-700 hover:text-blue-700 font-medium cursor-pointer">
-          Registrar-se
-        </button>
+        <Link to="/login">
+          <button className="text-gray-700 hover:text-blue-700 font-medium cursor-pointer">
+            Registrar-se
+          </button>
+        </Link>
       </div>
     </header>
   )

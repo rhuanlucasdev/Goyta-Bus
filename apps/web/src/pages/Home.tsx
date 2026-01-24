@@ -1,3 +1,4 @@
+import { Footer } from '../components/layout/Footer'
 import { Header } from '../components/layout/Header'
 import { Banner } from '../components/ui/Banner'
 import { HeroSearch } from '../components/ui/HeroSearch'
@@ -6,7 +7,7 @@ import { Listagem } from '../components/ui/Listagem'
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50">
       {/* Componente de Layout */}
       <Header />
       <main>
@@ -28,6 +29,7 @@ export const Home = () => {
         />
         <Listagem title="Ofertas" />
       </main>
+      <Footer />
     </div>
   )
 }

@@ -4,19 +4,27 @@ import { TripCard } from './TripCard'
 import { tripService } from '../../services/api'
 
 interface listagemProps {
-    title: string
+  title: string
 }
 
-export const Listagem:React.FC<listagemProps> = ({title}) => {
+export const Listagem: React.FC<listagemProps> = ({ title }) => {
   const [trips, setTrips] = useState<Trip[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    tripService.getPopularTrips().then((response) => {
+    const fetchData = async () => {
+      setLoading(true)
+
+      // Lógica Condicional: Define qual método chamar baseado no título
+      const response =
+        title === 'Ofertas' ? await tripService.getOffers() : await tripService.getPopularTrips()
+
       setTrips(response.data)
       setLoading(false)
-    })
-  }, [])
+    }
+
+    fetchData()
+  }, [title])
   return (
     <section className="max-w-7xl mx-auto px-6 mt-24 mb-12">
       <div className="flex items-center gap-2 mb-8">
@@ -25,12 +33,12 @@ export const Listagem:React.FC<listagemProps> = ({title}) => {
       </div>
       {loading ? (
         <div className="flex justify-center py-10">
-          <p className="text-gray-500 animate-pulse">Carregando viagens...</p>
+          <p className="text-gray-500 animate-pulse">Carregando {title}...</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {trips.map((trip) => (
-            <TripCard key={trip.id} trip={trip} />
+            <TripCard key={trip.id} trip={trip} showBadge={title === 'Ofertas'} />
           ))}
         </div>
       )}
