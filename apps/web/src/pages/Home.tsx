@@ -2,7 +2,6 @@ import { Footer } from '../components/layout/Footer'
 import { Header } from '../components/layout/Header'
 import { Banner } from '../components/ui/Banner'
 import { HeroSearch } from '../components/ui/HeroSearch'
-import { Links } from '../components/ui/Links'
 import { Listagem } from '../components/ui/Listagem'
 
 export const Home = () => {
@@ -20,7 +19,6 @@ export const Home = () => {
         />
         {/* Secao de listagem */}
         <Listagem title="Populares" />
-        <Links />
         {/* Banner Azul*/}
         <Banner
           backgroundImage="/fundo-banner2.jpg"

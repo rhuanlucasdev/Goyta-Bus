@@ -51,7 +51,8 @@ export const SearchResults = () => {
           )}
         </p>
         <h1 className="text-2xl font-bold mb-8 text-blue-900">
-          {trips.length} resultados encontrados.
+          {trips.length} resultados encontrados.{' '}
+          {/* TD: FAZER LOGICA SE trips.length = 1 RETORNAR RESULTADO */}
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {trips.map((trip) => (

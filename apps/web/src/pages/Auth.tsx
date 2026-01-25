@@ -1,14 +1,12 @@
-import { Footer } from '../components/layout/Footer'
-import { Header } from '../components/layout/Header'
+type AuthProps = {
+  onClose: () => void
+}
 
-export const Auth = () => {
+export const Auth = ({ onClose }: AuthProps) => {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Header />
-      <main className="flex items-center justify-center mt-20 text-9xl text-blue-900 ">
-        <h1>ROTA DE LOGIN FUNCIONANDO</h1>
-      </main>
-      <Footer />
+    <div className="modal">
+      <div>MODAL DE LOGIN TESTE</div>
+      <button onClick={onClose}>Close</button>
     </div>
   )
 }
