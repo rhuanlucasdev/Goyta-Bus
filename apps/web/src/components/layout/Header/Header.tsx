@@ -1,12 +1,11 @@
 import { UserCircle, Globe, Tag, LifeBuoy } from 'lucide-react'
 import { useState } from 'react'
-import { createPortal } from 'react-dom'
 import { Link, NavLink } from 'react-router'
-import { Auth } from '../../../pages/Auth'
+import { AuthDropdown } from '../../ui/AccountButton/AuthDropdown'
 
 export const Header = () => {
   const navLinkStyles = 'relative flex items-center gap-2 pb-10 pt-10 transition-colors font-medium'
-  const [showModal, setShowModal] = useState(false)
+  const [open, setOpen] = useState(false)
   return (
     <header className="w-full pt-4 bg-slate-50  md:px-12 flex items-center justify-between">
       {/* Logo - Ajuste o caminho da imagem conforme seu projeto */}
@@ -79,12 +78,12 @@ export const Header = () => {
       <div className="flex items-center gap-4">
         <button
           className="flex items-center gap-2 text-gray-700 hover:text-blue-700 font-medium cursor-pointer"
-          onClick={() => setShowModal(true)}
+          onClick={() => setOpen(true)}
         >
           <UserCircle size={24} />
           <span>Conta</span>
         </button>
-        {showModal && createPortal(<Auth onClose={() => setShowModal(false)} />, document.body)}
+        {open && <AuthDropdown onClose={() => setOpen(false)} />}
       </div>
     </header>
   )

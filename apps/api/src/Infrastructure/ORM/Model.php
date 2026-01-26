@@ -146,4 +146,18 @@ abstract class Model
 
     return $object;
   }
+
+  public static function findWhere(string $column, mixed $value): ?array
+  {
+    $db = Database::getConnection();
+
+    $table = 'users';
+
+    $sql = "SELECT * FROM {$table} WHERE {$column} = :value LIMIT 1";
+    $stmt = $db->prepare($sql);
+    $stmt->execute(['value' => $value]);
+
+    $result = $stmt->fetch();
+    return $result ?: null;
+  }
 }
