@@ -11,8 +11,14 @@ export const RegisterStep = ({ onBack }: { email: string; onBack: () => void }) 
 
       <h1 className="text-blue-900 text-6xl font-semibold mb-10">Cadastre-se!</h1>
 
-      <label htmlFor="e-mail" className="font-semibold text-3xl text-blue-900">E-mail</label>
-      <input type="mail" placeholder="ex: email@domain.com" required className="w-full border py-5 px-8 text-4xl rounded-[30px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10 mt-3" id="e-mail" />
+      <label htmlFor="name" className="font-semibold text-3xl text-blue-900">Nome</label>
+      <input type="text" placeholder="Joe Silver" required className="w-full border py-5 px-8 text-4xl rounded-[30px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10 mt-3" id="name" />
+
+      <label htmlFor="email" className="font-semibold text-3xl text-blue-900">E-mail</label>
+      <input type="mail" placeholder="ex: email@domain.com" required className="w-full border py-5 px-8 text-4xl rounded-[30px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10 mt-3" id="email" />
+
+      <label htmlFor="cpf" className="font-semibold text-3xl text-blue-900">CPF</label>
+      <input type="text" placeholder="xxx.xxx.xxx-xx" required className="w-full border py-5 px-8 text-4xl rounded-[30px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10 mt-3" id="cpf" />
 
       <label htmlFor="password" className="font-semibold text-3xl text-blue-900">Senha</label>
       <input type="password" placeholder="********" required className="w-full border py-5 px-8 text-4xl rounded-[30px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10 mt-3" id="password" />
