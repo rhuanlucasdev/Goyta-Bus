@@ -56,14 +56,6 @@ class Booking extends Model
             if(!$this->travel->seatAvailable($value)){
                 throw new Exception("This seat is not available");
             }
-
-            $same_travel = self::where('travel_id', $this->travel_id);
-
-            foreach ($same_travel as $item) {
-                if($item->seat_number == $value){
-                    throw new Exception("This seat is not available");
-                }
-            }
             
         }
 
