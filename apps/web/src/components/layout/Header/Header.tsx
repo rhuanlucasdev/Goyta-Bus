@@ -75,15 +75,27 @@ export const Header = () => {
       </nav>
 
       {/* Lado Direito: Login/Registro */}
-      <div className="flex items-center gap-4">
+      <div className="relative flex items-center gap-4">
+        {' '}
+        {/* Adicionei 'relative' aqui */}
         <button
           className="flex items-center gap-2 text-gray-700 hover:text-blue-700 font-medium cursor-pointer"
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen(!open)}
         >
           <UserCircle size={24} />
           <span>Conta</span>
         </button>
-        {open && <AuthDropdown onClose={() => setOpen(false)} />}
+        {open && (
+          <>
+            {/* 1. Este é o Overlay: uma div invisível que cobre a tela toda */}
+            <div className="fixed inset-0 z-40 cursor-default" onClick={() => setOpen(false)} />
+
+            {/* 2. O seu Dropdown real com um z-index maior que o overlay */}
+            <div className="absolute -top-10 -right-10 mt-2 z-50 w-250">
+              <AuthDropdown onClose={() => setOpen(false)} />
+            </div>
+          </>
+        )}
       </div>
     </header>
   )

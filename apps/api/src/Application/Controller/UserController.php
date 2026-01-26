@@ -24,16 +24,10 @@ class UserController
             'exists' => !empty($user)
         ]);
         exit;
+    }
 
-        // $email = $_GET['email'] ?? null;
-
-        // if (!$email) {
-        //     http_response_code(400);
-        //     echo json_encode(['error' => 'Email is required']);
-        //     return;
-        // }
-
-        // // echo json_encode(value: ['email' => $email]);
-        // $isTrue = (bool)json_encode(['email' => $email]); var_dump($isTrue);
+    public function login(): void 
+    {
+        // none for now
     }
 }
