@@ -32,6 +32,10 @@ class Travel extends Model
             return Bus::find($this->bus_id);
         }
 
+        if($property == 'bookings'){
+            return Booking::where('travel_id', $this->id);
+        }
+
         if (!property_exists($this, $property)) {
             throw new Exception("Property {$property} does not exist on Travel");
         }
@@ -113,6 +117,22 @@ class Travel extends Model
         }
 
         $this->$property = $value;
+    }
+
+    public function totalSeats(){
+        return $this->bus->capacity;
+    }
+
+    public function seatAvailable($seat): bool{
+        if($seat > $this->totalSeats()){
+            return false;
+        }
+        foreach($this->bookings as $booking){
+            if($booking->seat_number == $seat){
+                return false;
+            }
+        }
+        return true;
     }
 
 }

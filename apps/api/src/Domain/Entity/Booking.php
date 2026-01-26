@@ -49,8 +49,12 @@ class Booking extends Model
                 throw new Exception("Travel not set");
             }
 
-            if($this->travel->bus->capacity < $value){
+            if($this->travel->totalSeats() < $value){
                 throw new Exception("This seat does not exist");
+            }
+
+            if(!$this->travel->seatAvailable($value)){
+                throw new Exception("This seat is not available");
             }
 
             $same_travel = self::where('travel_id', $this->travel_id);
