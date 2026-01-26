@@ -19,6 +19,7 @@ export const LoginStep = ({ onBack }: { onBack: () => void }) => {
         type="password"
         placeholder="Senha"
         className="w-full border py-8 px-8 text-4xl rounded-[40px] border-slate-300 bg-slate-200 text-slate-500 focus:outline-blue-900 shadow-2xs mb-10"
+        required
       />
 
       <button className="w-105 bg-blue-900 text-blue-100 py-4 px-10 text-center rounded-4xl text-5xl cursor-pointer hover:scale-[105%] transition-all">

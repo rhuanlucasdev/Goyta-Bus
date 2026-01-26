@@ -92,4 +92,8 @@ class User extends Model
         ) === 1;
     }
 
+    public function verifyPassword($password){
+        return password_verify($password, $this->password);
+    }
+
 }

@@ -3,15 +3,6 @@
 declare(strict_types=1);
 
 use Application\Controller\SiteController;
-use Domain\Entity\Booking;
-use Domain\Entity\Bus;
-use Domain\Entity\City;
-use Domain\Entity\Passenger;
-use Domain\Entity\Driver;
-use Domain\Entity\Route;
-use Domain\Entity\RouteStopover;
-use Domain\Entity\Travel;
-use Domain\Entity\User;
 use Infrastructure\ORM\Database;
 use Infrastructure\Http\Router;
 use Application\Controller\UserController;
@@ -45,6 +36,8 @@ $router = new Router();
 
 $router->get('/', [SiteController::class, 'debugging']);
 $router->post('/auth/check-email', [UserController::class, 'getEmail']);
+$router->post('/auth/login', [UserController::class, 'login']);
+$router->post('/auth/register', [UserController::class, 'register']);
 
 
 $router->dispatch();
