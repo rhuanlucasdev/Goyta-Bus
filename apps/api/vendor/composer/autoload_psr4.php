@@ -6,5 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Infrastructure\\' => array($baseDir . '/src/Infrastructure'),
     'GoytaBus\\Api\\' => array($baseDir . '/src'),
+    'Domain\\' => array($baseDir . '/src/Domain'),
+    'Application\\' => array($baseDir . '/src/Application'),
 );

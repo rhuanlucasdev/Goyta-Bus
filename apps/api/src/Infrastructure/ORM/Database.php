@@ -11,7 +11,7 @@ class Database
   // ? aí indica um tipo anulável (nullable type)
   private static ?PDO $connection = null;
 
-  public static function connect(int $dsn, string $username, string $password): void
+  public static function connect(string $dsn, string $username, string $password): void
   {
     if (self::$connection === null) {
       self::$connection = new PDO(dsn: $dsn, username: $username, password: $password);
