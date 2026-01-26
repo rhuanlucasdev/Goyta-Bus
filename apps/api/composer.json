@@ -5,7 +5,10 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "GoytaBus\\Api\\": "src/"
+            "GoytaBus\\Api\\": "src/",
+            "Domain\\": "src/Domain/",
+            "Infrastructure\\": "src/Infrastructure/",
+            "Application\\": "src/Application/"
         }
     },
     "authors": [
