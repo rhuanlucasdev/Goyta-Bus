@@ -4,7 +4,7 @@ type CheckEmailResponse = {
 
 export const authService = {
   async checkEmail(email: string): Promise<CheckEmailResponse> {
-    const response = await fetch('http://localhost:8080/auth/check-email', {
+    const response = await fetch('http://localhost:8000/auth/check-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

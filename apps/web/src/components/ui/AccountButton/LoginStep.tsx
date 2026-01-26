@@ -2,7 +2,7 @@ import { LogIn } from 'lucide-react'
 
 export const LoginStep = ({ onBack }: { onBack: () => void }) => {
   return (
-    <div className="py-6 px-20 space-y-2 bg-white rounded-[40px] w-180">
+    <div className="py-6 px-20 space-y-2 bg-white rounded-[40px] w-[90vw]">
       <button
         onClick={onBack}
         className="group text-xl text-gray-500 cursor-pointer flex items-center gap-2 hover:text-gray-800 transition-colors"

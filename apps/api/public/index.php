@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Application\Controller\SiteController;
 use Domain\Entity\Booking;
 use Domain\Entity\Bus;
 use Domain\Entity\City;
@@ -40,10 +41,9 @@ Database::connect(
 );
 
 
-
-
 $router = new Router();
 
+$router->get('/', [SiteController::class, 'debugging']);
 $router->post('/auth/check-email', [UserController::class, 'getEmail']);
 
 

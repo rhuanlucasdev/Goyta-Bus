@@ -2,6 +2,8 @@
 
 namespace Application\Controller;
 
+use Domain\Entity\User;
+
 class UserController
 {
     public function getEmail(): void
@@ -18,7 +20,7 @@ class UserController
             return;
         }
 
-        $user = \Infrastructure\ORM\Model::findWhere('email', $email);
+        $user = User::findBy('email', $email);
         header('Content-Type: application/json');
         echo json_encode([
             'exists' => !empty($user)
